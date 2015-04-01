@@ -1,0 +1,50 @@
+<%= nested_form_for(@continent) do |f| %>
+  <% if @continent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@continent.errors.count, "error") %> prohibited this continent from being saved:</h2>
+
+      <ul>
+      <% @continent.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+		 <h2>Level 1</h2>
+		  <div class="field">
+		    <%= f.label 'Continent Name' %>
+		    <%= f.text_field :name %>
+		  </div>
+		  <hr>
+		  
+		  <h2>Level 2</h2>
+		  
+		  <p>The Continent has many countries</p>
+		
+  
+		  
+		  <%= f.fields_for :countries do |co| %>
+					  <%= co.text_field :name %>
+					  <%= co.link_to_remove "Remove this country" %>
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+					  
+		  <% end %>
+		  <p><%= f.link_to_add "Add a new country", :countries %></p> 
+		
+  
+ <hr> 
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
