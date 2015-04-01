@@ -24,22 +24,26 @@
 		  <p>The Continent has many countries</p>
 		
   
+		  <p><%= f.link_to_add "Add a new country", :countries %></p> 
 		  
 		  <%= f.fields_for :countries do |co| %>
 					  <%= co.text_field :name %>
 					  <%= co.link_to_remove "Remove this country" %>
 					  
-					  
-					  
-					  
-					  
-					  
-					  
-					  
+					  <blockquote>
+					 			  <h2>Level 3</h2>
+					 			   
+								  <%= co.fields_for :cities do |ci| %>
+								  		<%= ci.text_field :name %>
+								  		<%= ci.link_to_remove "Remove this city" %>
+								  <% end %>
+								  
+								   <p><%= co.link_to_add "Add a new city", :cities %></p> 
+					  </blockquote>
 					  
 					  
 		  <% end %>
-		  <p><%= f.link_to_add "Add a new country", :countries %></p> 
+		
 		
   
  <hr> 

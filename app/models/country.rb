@@ -4,9 +4,9 @@ class Country < ActiveRecord::Base
   
   
   
-  # has_many :cities, dependent => :destroy
+  has_many :cities
 #   
-  # accepts_nested_attributes_for :cities, :reject_if => :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :cities, :reject_if => :all_blank, allow_destroy: true
 #  
   
 end
