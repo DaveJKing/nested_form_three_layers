@@ -19,4 +19,4 @@ class City < ActiveRecord::Base
   belongs_to :Country
 end
 
-Chechout the strong_params in the Continent controller, then the \views\continents files
+Checkout the strong_params in the Continent controller, then the \views\continents files
