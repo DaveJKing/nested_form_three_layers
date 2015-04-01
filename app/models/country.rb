@@ -1,5 +1,5 @@
 class Country < ActiveRecord::Base
-  belongs_to :continent
+  belongs_to :continent, dependent: :destroy
   
   has_many :cities 
 
