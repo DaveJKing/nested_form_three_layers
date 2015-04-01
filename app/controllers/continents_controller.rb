@@ -41,7 +41,7 @@ class ContinentsController < ApplicationController
   # PATCH/PUT /continents/1.json
   def update
     
-    byebug
+    
     
     respond_to do |format|
       if @continent.update(continent_params)
@@ -75,8 +75,8 @@ class ContinentsController < ApplicationController
       # params.require(:continent).permit(:name, :countries_attributes => [:id, :name, :country_id ] )
       
       params.require(:continent).permit(:name, 
-      :countries_attributes => [ :id, :name, :continent_id,
-      :cities_attributes =>[:id,:name,:country_id] ])
+      :countries_attributes => [ :id, :name, :continent_id,:_destroy,
+      :cities_attributes =>[:id,:name,:country_id,:_destroy] ])
       
       
     end
