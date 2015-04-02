@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20150401121502) do
     t.datetime "updated_at"
   end
 
-  add_index "cities", ["Country_id"], name: "index_cities_on_Country_id"
+  add_index "cities", ["Country_id"], name: "index_cities_on_Country_id", using: :btree
 
   create_table "continents", force: true do |t|
     t.string   "name"
@@ -30,9 +30,11 @@ ActiveRecord::Schema.define(version: 20150401121502) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
-    t.integer  "continent_id"
+    t.integer  "Continent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "countries", ["Continent_id"], name: "index_countries_on_Continent_id", using: :btree
 
 end
