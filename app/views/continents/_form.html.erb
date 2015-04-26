@@ -26,10 +26,17 @@
 		  <p>The Continent has many countrie(s)</p>
 		
   
-		  <p><%= f.link_to_add "Add a new country", :countries %></p> 
+		  <p><%= f.link_to_add "Add a new country", :countries, :data => { :target => "#country_input" } %></p> 
 		  
-		  <%= f.fields_for :countries do |co| %>
+		  
+		  <p><%= f.link_to_add(:countries, :class => "btn btn-success", :data => { :target => ".bs-example-modal-sm", :toggle =>"modal" } ) do %>
+                                       Add Country
+          <% end %></p>
+		  
+		  <%= f.fields_for :countries, :wrapper => false  do |co| %>
 					  <%= co.text_field :name %>
+					  
+					 
 					  <%= co.link_to_remove "Remove this country" %>
 					  
 					  <blockquote>
@@ -40,12 +47,33 @@
 								  		<%= ci.link_to_remove "Remove this city" %>
 								  <% end %>
 								  
-								   <p><%= co.link_to_add "Add a new city", :cities %></p> 
+								    
+								   <p><%= co.link_to_add(:cities, :class => "btn btn-success") do %>
+                                        Add City
+                                   <% end %></p>
 					  </blockquote>
 					  
 					  
 		  <% end %>
 		   </blockquote>
+		   
+		   <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>
+
+		   
+		   Country input
+		   <hr>
+		   <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm">
+			    <div class="modal-content">
+			      ...
+			    </div>
+			  </div>
+			</div>
+		  
+		  
+</div>
+		 
+		   
 		
 		
   
