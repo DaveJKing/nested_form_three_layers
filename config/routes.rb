@@ -1,6 +1,7 @@
 Nest::Application.routes.draw do
   
 
+  get "modal/show"
   resources :continents
 
   # The priority is based upon order of creation: first created -> highest priority.
